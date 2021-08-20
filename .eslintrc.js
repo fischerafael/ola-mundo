@@ -25,6 +25,22 @@ module.exports = {
         "import/prefer-default-export": "off",
         "react/react-in-jsx-scope": "off",
         "react/jsx-filename-extension": [0],
+        "react/react-in-jsx-scope": "off",
+        "no-use-before-define": "off",
+        "no-tabs": ["error", { allowIndentationTabs: true }],
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+                js: "never",
+                jsx: "never",
+                ts: "never",
+                tsx: "never",
+            },
+        ],
+        "react/jsx-fragments": ["off", "element"],
+        "no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
+        "react/jsx-props-no-spreading": "off",
     },
 
     settings: {
