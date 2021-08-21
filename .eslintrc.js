@@ -41,6 +41,7 @@ module.exports = {
         "react/jsx-fragments": ["off", "element"],
         "no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
         "react/jsx-props-no-spreading": "off",
+        "@next/next/no-img-element": "off",
     },
 
     settings: {
