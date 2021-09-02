@@ -1,44 +1,37 @@
-import { Button, Flex, HStack, Link, Text } from "@chakra-ui/react";
+import { Button, Text, VStack } from "@chakra-ui/react";
 import React from "react";
+import { Header } from "../src/components/organisms";
 
 const index = () => (
     <>
-        <Flex
-            as="header"
+        <Header />
+
+        <VStack
+            as="main"
             bg="gray.900"
-            h="15vh"
+            minH="85vh"
             align="center"
-            justify="center"
             color="gray.50"
+            spacing="8"
+            px="4"
         >
-            <Flex
+            <VStack
                 maxW="container.lg"
-                h="full"
+                py="8"
+                spacing="8"
                 w="full"
-                maxWidth="container.lg"
-                align="center"
-                justify="space-between"
+                justify="center"
             >
-                <Text fontSize="lg">
-                    <Text as="span" fontWeight="bold">
-                        ola
-                    </Text>
-                    mundo
+                <Text fontSize="6xl" fontWeight="bold">
+                    Olá, mundo
                 </Text>
-
-                <HStack as="nav" spacing="8">
-                    <Link href="/">Home</Link>
-                    <Link href="/">Perfis</Link>
-                    <Button size="md" colorScheme="whatsapp">
-                        Log In
-                    </Button>
-                </HStack>
-            </Flex>
-        </Flex>
-
-        <Flex as="main" bg="gray.900" h="85vh" justify="center" color="gray.50">
-            body
-        </Flex>
+                <Text fontSize="xl" maxW="lg" textAlign="center">
+                    O ponto de encontro do quem quer trabalhar com tecnologia
+                    fora do país
+                </Text>
+                <Button colorScheme="whatsapp">Criar Conta</Button>
+            </VStack>
+        </VStack>
     </>
 );
 
