@@ -1,5 +1,5 @@
-import { Profile } from "../src/pages/profile";
+import React from "react";
 
-export default function Home() {
-    return <Profile />;
-}
+const index = () => <div>teste</div>;
+
+export default index;
