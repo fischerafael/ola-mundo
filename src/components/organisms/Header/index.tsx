@@ -28,7 +28,7 @@ export const Header = () => (
             <HStack as="nav" spacing="8">
                 <Link href="/">Home</Link>
                 <Link href="/">Talents</Link>
-                <Button size="md" colorScheme="whatsapp">
+                <Button size="md" bg="green.500">
                     Log In
                 </Button>
             </HStack>

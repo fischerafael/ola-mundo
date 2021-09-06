@@ -29,7 +29,7 @@ const index = () => (
                     O ponto de encontro do quem quer trabalhar com tecnologia
                     fora do país
                 </Text>
-                <Button colorScheme="whatsapp">Criar Conta</Button>
+                <Button bg="green.500">Criar Conta</Button>
             </VStack>
         </VStack>
     </>
