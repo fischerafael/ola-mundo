@@ -1,3 +1,5 @@
+export const oi = "";
+
 // import { Avatar, HStack, Text, VStack } from "@chakra-ui/react";
 // import { Header } from "../../src/components/organisms";
 
