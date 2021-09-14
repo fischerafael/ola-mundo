@@ -1,9 +1,10 @@
-import { Button, Flex, HStack, Link, Text } from "@chakra-ui/react";
+import { Flex, HStack, Link, Text } from "@chakra-ui/react";
+import { MainButton } from "../../atoms/MainButton";
 
 export const Header = () => (
     <Flex
         as="header"
-        bg="gray.900"
+        bg="gray.800"
         h="15vh"
         align="center"
         justify="center"
@@ -27,10 +28,8 @@ export const Header = () => (
 
             <HStack as="nav" spacing="8">
                 <Link href="/">Home</Link>
-                <Link href="/">Talents</Link>
-                <Button size="md" bg="green.500">
-                    Log In
-                </Button>
+
+                <MainButton>Entrar</MainButton>
             </HStack>
         </Flex>
     </Flex>
