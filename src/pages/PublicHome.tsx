@@ -1,4 +1,52 @@
-import { Header } from "../components/organisms";
+import { VStack, Text, Button, useDisclosure } from "@chakra-ui/react";
 import { PublicTemplate } from "../components/templates/PublicPage";
+import { Header } from "../components/organisms";
+import { CustomModal } from "../components/organisms/CustomModal";
 
-export const PagePublicHome = () => <PublicTemplate header={<Header />} />;
+export const PagePublicHome = () => {
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    return (
+        <>
+            <PublicTemplate
+                header={<Header />}
+                main={
+                    <VStack
+                        maxW="container.lg"
+                        py="8"
+                        spacing="8"
+                        w="full"
+                        justify="center"
+                    >
+                        <Text
+                            fontSize="6xl"
+                            fontWeight="bold"
+                            maxW="container.sm"
+                            textAlign="center"
+                            lineHeight="1"
+                        >
+                            Trabalhe remoto com tecnologia
+                        </Text>
+
+                        <Text maxW="lg" textAlign="center">
+                            Gerencie a sua carreira de desenvolvedor ou designer
+                            trabalhando para fora do país
+                        </Text>
+                        <Button
+                            size="md"
+                            bg="cyan.500"
+                            px="16"
+                            py="8"
+                            _hover={{ bg: "pink.500" }}
+                            onClick={onOpen}
+                        >
+                            Criar Conta
+                        </Button>
+                    </VStack>
+                }
+            />
+            <CustomModal isOpen={isOpen} onClose={onClose}>
+                <Button bg="cyan.500">Cadastrar com Google</Button>
+            </CustomModal>
+        </>
+    );
+};

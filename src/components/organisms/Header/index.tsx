@@ -21,7 +21,7 @@ export const Header = () => (
         >
             <Text fontSize="lg">
                 <Text as="span" fontWeight="bold">
-                    ola
+                    olá
                 </Text>
                 mundo
             </Text>
