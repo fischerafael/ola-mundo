@@ -1,17 +1,44 @@
-import { VStack, Text, Button, useDisclosure } from "@chakra-ui/react";
+import { useState } from "react";
+import axios from "axios";
+import {
+    VStack,
+    Text,
+    Button,
+    useDisclosure,
+    Input,
+    FormControl,
+    FormLabel,
+} from "@chakra-ui/react";
+
 import { PublicTemplate } from "../components/templates/PublicPage";
 import { Header } from "../components/organisms";
 import { CustomModal } from "../components/organisms/CustomModal";
-import { useEffect } from "react";
 
 export const PagePublicHome = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
 
-    useEffect(() => {
-        fetch("http://localhost:3000/api/users")
-            .then((res) => res.json())
-            .then((data) => console.log(data));
-    }, []);
+    const [isLoading, setLoading] = useState(false);
+
+    const [registerData, setRegisterData] = useState({
+        name: "",
+        email: "",
+        password: "",
+    });
+
+    console.log("REGISTER DATA", registerData);
+
+    const handleChange = (e: any) =>
+        setRegisterData({ ...registerData, [e.target.id]: e.target.value });
+
+    const handleRegister = () => {
+        setLoading(true);
+        axios
+            .post("http://localhost:3000/api/auth", registerData)
+            .then((res) => console.log(res.data))
+            .catch((e) => console.log(e))
+            .finally(() => setLoading(false));
+    };
+
     return (
         <>
             <PublicTemplate
@@ -52,7 +79,45 @@ export const PagePublicHome = () => {
                 }
             />
             <CustomModal isOpen={isOpen} onClose={onClose}>
-                <Button bg="cyan.500">Cadastrar com Google</Button>
+                <VStack spacing="4">
+                    <FormControl>
+                        <FormLabel>Nome</FormLabel>
+                        <Input
+                            value={registerData.name}
+                            id="name"
+                            type="text"
+                            onChange={handleChange}
+                        />
+                    </FormControl>
+
+                    <FormControl>
+                        <FormLabel>Email</FormLabel>
+                        <Input
+                            id="email"
+                            type="email"
+                            value={registerData.email}
+                            onChange={handleChange}
+                        />
+                    </FormControl>
+
+                    <FormControl>
+                        <FormLabel>Senha</FormLabel>
+                        <Input
+                            id="password"
+                            type="password"
+                            value={registerData.password}
+                            onChange={handleChange}
+                        />
+                    </FormControl>
+
+                    <Button
+                        isLoading={isLoading}
+                        onClick={handleRegister}
+                        bg="cyan.500"
+                    >
+                        Cadastrar
+                    </Button>
+                </VStack>
             </CustomModal>
         </>
     );

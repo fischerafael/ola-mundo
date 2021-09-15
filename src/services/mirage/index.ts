@@ -30,9 +30,19 @@ export const makeServer = () => {
         },
         routes() {
             this.namespace = "api";
-            this.timing = 1000;
+            this.timing = 1500;
+
+            this.post("/auth", (_, request) => {
+                const { email, password } = JSON.parse(request.requestBody);
+
+                return { user: "1234", jwt: "123456" };
+            });
 
             this.get("/users");
+            this.get("/auth", (_, request) => {
+                const req = JSON.parse(request.requestBody);
+                return { req };
+            });
 
             this.namespace = "";
             this.passthrough();
