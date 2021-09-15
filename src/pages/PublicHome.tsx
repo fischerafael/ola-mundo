@@ -2,9 +2,16 @@ import { VStack, Text, Button, useDisclosure } from "@chakra-ui/react";
 import { PublicTemplate } from "../components/templates/PublicPage";
 import { Header } from "../components/organisms";
 import { CustomModal } from "../components/organisms/CustomModal";
+import { useEffect } from "react";
 
 export const PagePublicHome = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
+
+    useEffect(() => {
+        fetch("http://localhost:3000/api/users")
+            .then((res) => res.json())
+            .then((data) => console.log(data));
+    }, []);
     return (
         <>
             <PublicTemplate

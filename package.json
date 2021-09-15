@@ -22,12 +22,15 @@
         "typescript": "^4.3.5"
     },
     "devDependencies": {
+        "@types/faker": "^5.5.8",
         "@typescript-eslint/eslint-plugin": "^4.29.2",
         "@typescript-eslint/parser": "^4.29.2",
         "autoprefixer": "^10.3.1",
         "babel-plugin-styled-components": "^1.12.0",
         "eslint": "^7.32.0",
         "eslint-config-next": "^11.1.0",
+        "faker": "^5.5.3",
+        "miragejs": "^0.1.41",
         "postcss": "^8.3.6",
         "prettier": "^2.3.2"
     }
